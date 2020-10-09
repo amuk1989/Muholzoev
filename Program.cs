@@ -6,7 +6,9 @@ namespace FirstHWMuholzoev
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Store store = new Store();
+            Customer customer = new Customer();
         }
+
     }
 }
