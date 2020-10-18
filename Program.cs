@@ -1,4 +1,4 @@
-﻿using FirstHWMuholzoev.SecondHomework;
+﻿using System.Threading;
 using System;
 using System.Collections.Generic;
 
@@ -9,6 +9,7 @@ namespace FirstHWMuholzoev
         delegate void Func();
         public static readonly string Address = "Address";
         public static readonly string Format = "Format";
+        static object locker = new object();
         private static void DummyFunc()
         {
             WriteToConsole("Петя", "школьный друг", 30);
@@ -61,12 +62,24 @@ namespace FirstHWMuholzoev
             }*/
 
             //Order order = new Order();
-            RepositoryOperations order = new RepositoryOperations(1);
+            /* RepositoryOperations order = new RepositoryOperations(1);
 
-            order.Load();
-            order.Update();
-            order.Save();
-            order.Delete();
+             order.Load();
+             order.Update();
+             order.Save();
+             order.Delete();*/
+
+            new Thread(() =>
+            {
+                lock (locker)
+                {
+                    ThreadSafeSingleton instanceOne = ThreadSafeSingleton.Instance;
+                }
+                
+
+            }).Start();
+
+            ThreadSafeSingleton instanceTwo = ThreadSafeSingleton.Instance;
 
             Console.ReadLine();
 
