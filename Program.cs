@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Threading;
+using System;
 using System.Collections.Generic;
 
 namespace FirstHWMuholzoev
@@ -8,6 +9,7 @@ namespace FirstHWMuholzoev
         delegate void Func();
         public static readonly string Address = "Address";
         public static readonly string Format = "Format";
+        static object locker = new object();
         private static void DummyFunc()
         {
             WriteToConsole("Петя", "школьный друг", 30);
@@ -47,7 +49,7 @@ namespace FirstHWMuholzoev
 
         static void Main(string[] args)
         {
-            #region 1
+            /*#region 1
             Store store = new Store();
             Customer customer = new Customer();
             #endregion
@@ -57,11 +59,33 @@ namespace FirstHWMuholzoev
             foreach (var func in funcs)
             {
                 MakeAction(func);
-            }
+            }*/
+
+            //Order order = new Order();
+            /* RepositoryOperations order = new RepositoryOperations(1);
+
+             order.Load();
+             order.Update();
+             order.Save();
+             order.Delete();*/
+
+            /*new Thread(() =>
+            {
+                lock (locker)
+                {
+                    ThreadSafeSingleton instanceOne = ThreadSafeSingleton.Instance;
+                }
+                
+
+            }).Start();
+
+            ThreadSafeSingleton instanceTwo = ThreadSafeSingleton.Instance;*/
+
+            
 
             Console.ReadLine();
 
-            #endregion
+            
         }
     }
 }
