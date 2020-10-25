@@ -69,7 +69,7 @@ namespace FirstHWMuholzoev
              order.Save();
              order.Delete();*/
 
-            new Thread(() =>
+            /*new Thread(() =>
             {
                 lock (locker)
                 {
@@ -79,7 +79,9 @@ namespace FirstHWMuholzoev
 
             }).Start();
 
-            ThreadSafeSingleton instanceTwo = ThreadSafeSingleton.Instance;
+            ThreadSafeSingleton instanceTwo = ThreadSafeSingleton.Instance;*/
+
+            
 
             Console.ReadLine();
 

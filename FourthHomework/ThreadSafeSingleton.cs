@@ -21,7 +21,7 @@ namespace FirstHWMuholzoev
             {
             }
 
-            internal static readonly Lazy<ThreadSafeSingleton> instance = new Lazy<ThreadSafeSingleton();
+            internal static readonly Lazy<ThreadSafeSingleton> instance = new Lazy<ThreadSafeSingleton>();
 
         }
     }
